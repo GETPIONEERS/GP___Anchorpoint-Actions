@@ -14,7 +14,7 @@ action:
   author: René Frassek (GETPIONEERS GmbH)
   description: Creates default GETPIONEERS project folders
   icon:
-    path: :/icons/createfoldertemplate.svg
+    path: /icons/GP_Icon.svg
 
   script: create_folder_template.py
 
