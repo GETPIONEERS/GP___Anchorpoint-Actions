@@ -65,6 +65,7 @@ def button_clicked_doit(dialog):
         print("Directory " + directoryToCreate + " created")
 
     ui.show_info("Folders successfully created")
+    dialog.close()
 
 
 # Dialogue Window before creating the folder structure
