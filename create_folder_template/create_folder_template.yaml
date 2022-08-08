@@ -8,8 +8,7 @@ action:
   name: Create Folder Template
 
   version: 1
-  id: gp::createfoldertemplate
-  category: user
+  id: gp::actions::createfoldertemplate
   type: python
   author: René Frassek (GETPIONEERS GmbH)
   description: Creates default GETPIONEERS project folders
