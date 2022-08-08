@@ -1,5 +1,5 @@
+from typing_extensions import Self
 import anchorpoint as ap
-import apsync as aps
 import os
 
 apc = ap.Context.instance() # setup anchorpoint context
@@ -49,33 +49,69 @@ directories = [
 
 ]
 
-# Function for creating the folder structure
+# --------------------------------------------------------
+# Function for creating the folder structure and .gitkeep
+# --------------------------------------------------------
+
 def button_clicked_doit(dialog):
 
     parentDirectory = apc.project_path
     
     for currentDirectory in directories:
 
+        # append paths for folders and .gitkeep
         directoryToCreate = parentDirectory + "/" + currentDirectory
+        doGitkeep = dialog.get_value("doGitkeep")
+        directoryToCreateFile = parentDirectory + "/" + currentDirectory + "/.gitkeep"
 
+        # create folders
         mode = 0o666
         exist_ok = True
         os.makedirs(directoryToCreate, mode, exist_ok)
-
         print("Directory " + directoryToCreate + " created")
+        
+        # check if .gitkeep files should be written
+        if doGitkeep == True:   
+            open(directoryToCreateFile, "w")
+            print("Directory " + directoryToCreateFile + " created")
 
-    ui.show_info("Folders successfully created")
+    # decide which info panel to display (.gitkeep yes / no)
+    if doGitkeep == True:
+        ui.show_info("Folders & .gitkeep files successfully created", "", 5000)
+    else:
+        ui.show_info("Folders successfully created", "", 5000)
+    
     dialog.close()
 
 
-# Dialogue Window before creating the folder structure
+# ---------------------------------
+# Function for closing the dialoge
+# ---------------------------------
+
+def button_close(dialog: ap.Dialog):
+    ui.show_info("Folder creation aborted", "", 5000)
+    dialog.close()
+
+# ----------
+# Debugging
+# ----------
+
+def check_gitkeep(dialog):
+    print(dialog.get_value("doGitkeep"))
+
+# --------------
+# Dialog Window 
+# --------------
+
 dialog = ap.Dialog()
 
-dialog.title ="WARNING"
-dialog.add_text("Do you really want to create the entire folder structure in this folder:")
-dialog.add_text(apc.project_path)
-dialog.add_text(" ")
-dialog.add_button("DO IT!", callback = button_clicked_doit)
+dialog.title ="Create Folder Template"
+dialog.add_text("<b>Do you really want to create the entire folder structure in this project?</b>")
+dialog.add_text("Path: " + apc.project_path)
+dialog.add_empty()
+dialog.add_checkbox(True, var = "doGitkeep").add_text("Create .gitkeep files")
+dialog.add_info("By default, Git ignores all folders without a file in it. This will create a .gitkeep file in every last folder <br>in a chain to make sure every user gets every folder. This should be enabled in most cases.")
+dialog.add_button("Create Folders", callback = button_clicked_doit).add_button("Cancel", callback = button_close)
 
 dialog.show()
 
