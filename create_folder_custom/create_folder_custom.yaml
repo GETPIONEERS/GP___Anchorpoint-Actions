@@ -5,18 +5,18 @@
 
 version: 1.0
 action:
-  name: Create Folder (Current Date)
+  name: Create Folder (Custom)
 
   version: 1
-  id: gp::actions::createfolderdate
+  id: gp::actions::createfoldercustom
   type: python
   author: René Frassek (GETPIONEERS GmbH)
-  description: Creates folder with the current date as name (YYYY-MM-DD)
+  description: Creates folder with custom name like the current Date, current Date and time, etc.
   category: "GETPIONEERS/Folders"
   icon:
     path: /icons/GP_Icon.svg
 
-  script: create_folder_date.py
+  script: create_folder_custom.py
 
   register:
     folder:

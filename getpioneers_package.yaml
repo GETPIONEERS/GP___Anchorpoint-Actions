@@ -10,7 +10,7 @@ action:
   id: gp::actions::package
   type: package
   enable: true
-  author: GETPIONEERS GmbH
+  author: René Frassek (GETPIONEERS GmbH)
   description: GETPIONEERS Anchorpoint Actions
   details: 'GETPIONEERS Anchorpoint Actions'
   icon:
@@ -18,6 +18,7 @@ action:
 
   actions:
     - gp::actions::createfoldertemplate
+    - gp::actions::createfoldercustom
 
   platforms:
     - win 
