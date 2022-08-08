@@ -1,6 +1,7 @@
 from typing_extensions import Self
-import anchorpoint as ap
 import os
+import anchorpoint as ap
+
 
 apc = ap.Context.instance() # setup anchorpoint context
 ui = ap.UI() # setup UI
@@ -77,9 +78,9 @@ def button_clicked_doit(dialog):
 
     # decide which info panel to display (.gitkeep yes / no)
     if doGitkeep == True:
-        ui.show_info("Folders & .gitkeep files successfully created", "", 5000)
+        ui.show_info("Folders & .gitkeep files successfully created.", "", 2500)
     else:
-        ui.show_info("Folders successfully created", "", 5000)
+        ui.show_info("Folders successfully created.", "", 2500)
     
     dialog.close()
 
@@ -89,7 +90,6 @@ def button_clicked_doit(dialog):
 # ---------------------------------
 
 def button_close(dialog: ap.Dialog):
-    ui.show_info("Folder creation aborted", "", 5000)
     dialog.close()
 
 # ----------

@@ -5,18 +5,18 @@
 
 version: 1.0
 action:
-  name: Create Folders (Project Template)
+  name: Create Folder (Current Date)
 
   version: 1
-  id: gp::actions::createfoldertemplate
+  id: gp::actions::createfolderdate
   type: python
   author: René Frassek (GETPIONEERS GmbH)
-  description: Creates default GETPIONEERS project folders
+  description: Creates folder with the current date as name (YYYY-MM-DD)
   category: "GETPIONEERS/Folders"
   icon:
     path: /icons/GP_Icon.svg
 
-  script: create_folder_template.py
+  script: create_folder_date.py
 
   register:
     folder:
