@@ -79,4 +79,6 @@ dialog.add_button("DO IT!", callback = button_clicked_doit)
 
 dialog.show()
 
+# TESTKOMMENTAR
+
 
