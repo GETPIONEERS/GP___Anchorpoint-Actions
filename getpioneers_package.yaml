@@ -5,17 +5,16 @@
 
 version: 1.0
 action:
-  name: Getpioneers Anchorpoint Actions
+  name: GETPIONEERS Actions
 
   version: 1
-  id: gp::package::apactions
+  id: gp::package::actions
   category: user
   type: package
   enable: false
   author: René Frassek (GETPIONEERS GmbH)
-  description: A collection of GETPIONEERS Anchorpoint Actions
+  description: GETPIONEERS Actions
   icon:
     path: Package_Icon.svg
-
   actions:
     - gp::createfoldertemplate
