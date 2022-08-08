@@ -49,9 +49,9 @@ directories = [
 
 ]
 
-# -------------------------------------------
-# Function for creating the folder structure
-# -------------------------------------------
+# --------------------------------------------------------
+# Function for creating the folder structure and .gitkeep
+# --------------------------------------------------------
 
 def button_clicked_doit(dialog):
 
@@ -59,19 +59,23 @@ def button_clicked_doit(dialog):
     
     for currentDirectory in directories:
 
+        # append paths for folders and .gitkeep
         directoryToCreate = parentDirectory + "/" + currentDirectory
         doGitkeep = dialog.get_value("doGitkeep")
         directoryToCreateFile = parentDirectory + "/" + currentDirectory + "/.gitkeep"
 
+        # create folders
         mode = 0o666
         exist_ok = True
         os.makedirs(directoryToCreate, mode, exist_ok)
         print("Directory " + directoryToCreate + " created")
         
-        if doGitkeep == True:
+        # check if .gitkeep files should be written
+        if doGitkeep == True:   
             open(directoryToCreateFile, "w")
             print("Directory " + directoryToCreateFile + " created")
 
+    # decide which info panel to display (.gitkeep yes / no)
     if doGitkeep == True:
         ui.show_info("Folders & .gitkeep files successfully created", "", 5000)
     else:
@@ -95,9 +99,9 @@ def button_close(dialog: ap.Dialog):
 def check_gitkeep(dialog):
     print(dialog.get_value("doGitkeep"))
 
-# -----------------------------------------------------
-# Dialogue Window before creating the folder structure
-# -----------------------------------------------------
+# --------------
+# Dialog Window 
+# --------------
 
 dialog = ap.Dialog()
 

@@ -1,0 +1,21 @@
+# Anchorpoint Markup Language
+# Predefined Variables: e.g. ${path}
+# Environment Variables: e.g. ${MY_VARIABLE}
+# Full documentation: https://docs.anchorpoint.app/Actions/Reference
+
+version: 1.0
+action:
+  name: Getpioneers Anchorpoint Actions
+
+  version: 1
+  id: gp::package::apactions
+  category: user
+  type: package
+  enable: false
+  author: René Frassek (GETPIONEERS GmbH)
+  description: A collection of GETPIONEERS Anchorpoint Actions
+  icon:
+    path: Package_Icon.svg
+
+  actions:
+    - gp::createfoldertemplate
