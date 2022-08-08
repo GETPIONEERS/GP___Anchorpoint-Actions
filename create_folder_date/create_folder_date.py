@@ -5,6 +5,7 @@ import anchorpoint as ap
 
 
 apc = ap.Context.instance() # setup anchorpoint context
+ui = ap.UI() # setup UI
 
 date = date.today()
 parentDirectory = apc.path
