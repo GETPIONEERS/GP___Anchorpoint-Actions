@@ -1,12 +1,11 @@
-from pickle import FALSE
 from typing_extensions import Self
 from datetime import datetime
 import os
 import pathlib
-import anchorpoint as ap
+import anchorpoint
 
-apc = ap.Context.instance() # setup anchorpoint context
-ui = ap.UI() # setup UI
+apc = anchorpoint.Context.instance() # setup anchorpoint context
+ui = anchorpoint.UI() # setup UI
 
 
 # DATE AND TIME (YYYY-MM-DD_HH-MM) based folder path calculation for folder creation
@@ -60,7 +59,7 @@ def create_folder(directory_to_create, dialog):
 
 
 # Build GUI
-dialog = ap.Dialog()
+dialog = anchorpoint.Dialog()
 
 dialog.title ="Create custom folder"
 dialog.add_text("<b>What kind of folder do you want to create?</b>")

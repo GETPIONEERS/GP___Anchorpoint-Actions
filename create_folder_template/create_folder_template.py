@@ -1,10 +1,10 @@
 from typing_extensions import Self
 import os
-import anchorpoint as ap
+import anchorpoint
 
 
-apc = ap.Context.instance() # setup anchorpoint context
-ui = ap.UI() # setup UI
+apc = anchorpoint.Context.instance() # setup anchorpoint context
+ui = anchorpoint.UI() # setup UI
 
 
 # ENTER DIRECTORIES HERE
@@ -89,7 +89,7 @@ def button_clicked_doit(dialog):
 # Function for closing the dialoge
 # ---------------------------------
 
-def button_close(dialog: ap.Dialog):
+def button_close(dialog: anchorpoint.Dialog):
     dialog.close()
 
 # ----------
@@ -103,7 +103,7 @@ def check_gitkeep(dialog):
 # Dialog Window 
 # --------------
 
-dialog = ap.Dialog()
+dialog = anchorpoint.Dialog()
 
 dialog.title ="Create Folder Template"
 dialog.add_text("<b>Do you really want to create the entire folder structure in this project?</b>")
