@@ -5,7 +5,7 @@
 
 version: 1.0
 action:
-  name: Create Folders (Project Template)
+  name: Create Project Folder Template
 
   version: 1
   id: gp::actions::createfoldertemplate

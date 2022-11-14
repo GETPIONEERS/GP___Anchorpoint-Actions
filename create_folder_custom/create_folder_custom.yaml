@@ -5,7 +5,7 @@
 
 version: 1.0
 action:
-  name: Create Folder (Custom)
+  name: Create Custom Folder
 
   version: 1
   id: gp::actions::createfoldercustom
