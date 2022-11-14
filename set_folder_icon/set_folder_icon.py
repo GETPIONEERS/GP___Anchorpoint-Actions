@@ -5,14 +5,7 @@ import apsync
 # -------------------------------------------------------------------------------------------------
 #   READ ME 
 # -------------------------------------------------------------------------------------------------
-#   By default, the script creates all necessary folders for a full path to be created. 
-#   That means, if you add "/Testfolder/Content/Innercontent" to dirsToCreate the script
-#   will create the FULL directory tree. That also means that ONLY THE LAST FOLDER IN 
-#   THE TREE WILL GET AN ICON. This what the "############## EXPLICIT ICONS AND COLORING" 
-#   part at the bottom is for. For this example, you could use this to color /Testfolder/Content/
-#
-#   The script also does not care if the folder already has an icon or a color. It will simply
-#   override it with whatever is defined in dirsToCreate.
+#   
 # -------------------------------------------------------------------------------------------------
 
 # ANCHORPOINT STUFF
@@ -22,178 +15,257 @@ ui = anchorpoint.UI()  # setup UI
 ProjectPath = str(pathlib.Path(apc.project_path))
 
 ## ANCHORPOINT COLORS
-c_grey = "#9E9E9E" # default color
+# special default color; seems to be broken though
+c_default = "#000000"
+
+# default anchorpoint colors
+c_grey_light = "EEEEEE"
+c_grey = "9E9E9E"
+c_grey_dark = "1F2125"
+
+c_purple_bright = "#DCC9F6"
 c_purple = "#7937d4"
-c_red = "#d33434"
-c_turk = "#37d4bb"
-c_yellow = "#d4aa37"
-c_orange = "#fe7c3f"
-c_green = "#fe7c3f"
-c_blue = "#1e88e5"
+c_purple_dark = "#491393"
+
+c_red_bright = "#F27979"
+c_red = "#D33434"
+c_red_dark = "#6A1414"
+
+c_turk_bright = "#BAFBF0"
+c_turk = "#37D4BB"
+c_turk_dark = "#07705F"
+
+c_yellow_bright = "#F3D582"
+c_yellow = "#D4AA37"
+c_yellow_dark = "#72570E"
+
+c_orange_light = "#FBBC9F"
+c_orange = "#FE7C3F"
+c_orange_dark = "#9F3C0D"
+
+c_green_light = "#D7F5B0"
+c_green = "#9DDB4A"
+c_green_dark = "#447602"
+
+c_blue_light = "#90CAF9"
+c_blue = "#1E88E5"
+c_blue_dark = "#0D47A1"
 
 ## DIRECTORIES ICONS AND COLORS
 dirsToCreate = [
-    ############## Beratung
-    {
-        "path" : "Beratung/Konzept", 
-        "icon" : "folderGrey",
-        "color" : c_grey
-    },
-    ############## Kundendaten
-    {
-        "path" : "Kundendaten", 
-        "icon" : "folderGrey",
-        "color" : c_grey
-    },
-    ############## Produktion / Applikationen / 360_2D_Events
-    {
-        "path" : "Produktion/Applikationen/360_2D_Events/3DVista", 
-        "icon" : "folderGrey",
-        "color" : c_grey
-    },
-    {
-        "path" : "Produktion/Applikationen/360_2D_Events/krpano", 
-        "icon" : "folderGrey",
-        "color" : c_grey
-    },
-    {
-        "path" : "Produktion/Applikationen/360_2D_Events/PTGui", 
-        "icon" : "folderGrey",
-        "color" : c_grey
-    },
-    ############## Produktion / Applikationen / Output
-    {
-        "path" : "Produktion/Applikationen/Output/WebGL",
-        "icon" : "folderGrey",
-        "color" : c_grey
-    },
-    ############## Produktion / Applikationen / Realtime
-    {
-        "path" : "Produktion/Applikationen/Realtime/ThreeJS",
-        "icon" : "folderGrey",
-        "color" : c_grey
-    },
-    {
-        "path" : "Produktion/Applikationen/Realtime/UEngine",
-        "icon" : "folderGrey",
-        "color" : c_grey
-    },
-    {
-        "path" : "Produktion/Applikationen/Realtime/Unity",
-        "icon" : "folderGrey",
-        "color" : c_grey
-    },
-    ############## Produktion / Applikationen / Website_HTML / Bootstrap
-    {
-        "path" : "Produktion/Applikationen/Website_HTML/Bootstrap/HTML",
-        "icon" : "folderGrey",
-        "color" : c_grey
-    },
-    ############## Produktion / CGI
-    {
-        "path" : "Produktion/CGI/previews",
-        "icon" : "folderGrey",
-        "color" : c_grey
-    },
-    {
-        "path" : "Produktion/CGI/renderoutput",
-        "icon" : "folderGrey",
-        "color" : c_grey
-    },
-    {
-        "path" : "Produktion/CGI/renderpresets",
-        "icon" : "folderGrey",
-        "color" : c_grey
-    },
-    {
-        "path" : "Produktion/CGI/sceneassets",
-        "icon" : "folderGrey",
-        "color" : c_grey
-    },
-    {
-        "path" : "Produktion/CGI/scenes/xref/objects",
-        "icon" : "folderGrey",
-        "color" : c_grey
-    },
-    ############## Produktion / Grafik-Design
-    {
-        "path" : "Produktion/Grafik-Design/Edit",
-        "icon" : "folderGrey",
-        "color" : c_grey
-    },
-    {
-        "path" : "Produktion/Grafik-Design/Footage",
-        "icon" : "folderGrey",
-        "color" : c_grey
-    },
-    {
-        "path" : "Produktion/Grafik-Design/Output",
-        "icon" : "folderGrey",
-        "color" : c_grey
-    },
-    ############## Produktion / Postproduktion
-    {
-        "path" : "Produktion/Postproduktion/Footage",
-        "icon" : "folderGrey",
-        "color" : c_grey
-    },
-    {
-        "path" : "Produktion/Postproduktion/Output/AS1-Final",
-        "icon" : "folderGrey",
-        "color" : c_grey
-    },
-    {
-        "path" : "Produktion/Postproduktion/Output/Final",
-        "icon" : "folderGrey",
-        "color" : c_grey
-    },
-    {
-        "path" : "Produktion/Postproduktion/Output/Prefinal",
-        "icon" : "folderGrey",
-        "color" : c_grey
-    },
-    {
-        "path" : "Produktion/Postproduktion/Output/Preview",
-        "icon" : "folderGrey",
-        "color" : c_grey
-    },
-    {
-        "path" : "Produktion/Postproduktion/Videoedit",
-        "icon" : "folderGrey",
-        "color" : c_grey
-    },
-    ############## Vorproduktion
-    {
-        "path" : "Vorproduktion/Drehbuch",
-        "icon" : "folderGrey",
-        "color" : c_grey
-    },
-    {
-        "path" : "Vorproduktion/Inspiration",
-        "icon" : "folderGrey",
-        "color" : c_grey
-    },
-    ############## EXPLICIT ICONS AND COLORING
+    # Folders with Icons
     {
         "path" : "Kundendaten",
-        "icon" : "eye",
-        "color" : c_red
+        "icon" : "emoticons/skull",
+        "color" : c_red_bright
     },
     {
         "path" : "Beratung",
-        "icon" : "eye",
-        "color" : c_red
+        "icon" : "music-audio/gramophone",
+        "color" : c_blue_light
     },
+    {
+        "path" : "Beratung/Konzept",
+        "icon" : "design/guides",
+        "color" : c_blue_light
+    },
+
     {
         "path" : "Produktion",
-        "icon" : "eye",
-        "color" : c_red
+        "icon" : "design/paint-brush",
+        "color" : c_green_light
     },
     {
+        "path" : "Produktion/Applikationen",
+        "icon" : "design/layers",
+        "color" : c_green_light
+    },
+    {
+        "path" : "Produktion/CGI",
+        "icon" : "design/3d",
+        "color" : c_green_light
+    },
+    {
+        "path" : "Produktion/Grafik-Design",
+        "icon" : "design/brush",
+        "color" : c_green_light
+    },
+    {
+        "path" : "Produktion/Postproduktion",
+        "icon" : "design/paper-cutter",
+        "color" : c_green_light
+    },
+    
+    {
         "path" : "Vorproduktion",
-        "icon" : "eye",
-        "color" : c_red
-    }
+        "icon" : "design/palette",
+        "color" : c_orange_light
+    },
+    {
+        "path" : "Vorproduktion/Drehbuch",
+        "icon" : "multimedia/album",
+        "color" : c_orange_light
+    },
+    {
+        "path" : "Vorproduktion/Inspiration",
+        "icon" : "feedback/feedback-9",
+        "color" : c_orange_light
+    },
+
+    # Folders with just colors
+    {
+        "path" : "Produktion/Applikationen/360_2D_Events",
+        "icon" : "",
+        "color" : c_green_light
+    },
+    {
+        "path" : "Produktion/Applikationen/360_2D_Events/3DVista",
+        "icon" : "",
+        "color" : c_green_light
+    },
+    {
+        "path" : "Produktion/Applikationen/360_2D_Events/krpano",
+        "icon" : "",
+        "color" : c_green_light
+    },
+    {
+        "path" : "Produktion/Applikationen/360_2D_Events/PTGui",
+        "icon" : "",
+        "color" : c_green_light
+    },
+    {
+        "path" : "Produktion/Applikationen/Output/",
+        "icon" : "",
+        "color" : c_green_light
+    },
+    {
+        "path" : "Produktion/Applikationen/Output/WebGL",
+        "icon" : "",
+        "color" : c_green_light
+    },
+    {
+        "path" : "Produktion/Applikationen/Realtime/",
+        "icon" : "",
+        "color" : c_green_light
+    },
+    {
+        "path" : "Produktion/Applikationen/Realtime/ThreeJS",
+        "icon" : "",
+        "color" : c_green_light
+    },
+    {
+        "path" : "Produktion/Applikationen/Realtime/UEngine",
+        "icon" : "",
+        "color" : c_green_light
+    },
+    {
+        "path" : "Produktion/Applikationen/Realtime/Unity",
+        "icon" : "",
+        "color" : c_green_light
+    },
+    {
+        "path" : "Produktion/Applikationen/Website_HTML",
+        "icon" : "",
+        "color" : c_green_light
+    },
+    {
+        "path" : "Produktion/Applikationen/Website_HTML/Bootstrap",
+        "icon" : "",
+        "color" : c_green_light
+    },
+    {
+        "path" : "Produktion/Applikationen/Website_HTML/Bootstrap/HTML",
+        "icon" : "",
+        "color" : c_green_light
+    },
+    
+    {
+        "path" : "Produktion/CGI/previews",
+        "icon" : "",
+        "color" : c_green_light
+    },
+    {
+        "path" : "Produktion/CGI/renderoutput",
+        "icon" : "",
+        "color" : c_green_light
+    },
+    {
+        "path" : "Produktion/CGI/renderpresets",
+        "icon" : "",
+        "color" : c_green_light
+    },
+    {
+        "path" : "Produktion/CGI/sceneassets",
+        "icon" : "",
+        "color" : c_green_light
+    },
+    {
+        "path" : "Produktion/CGI/scenes",
+        "icon" : "",
+        "color" : c_green_light
+    },
+    {
+        "path" : "Produktion/CGI/scenes/xref",
+        "icon" : "",
+        "color" : c_green_light
+    },
+        {
+        "path" : "Produktion/CGI/scenes/xref/objects",
+        "icon" : "",
+        "color" : c_green_light
+    },
+    
+    {
+        "path" : "Produktion/Grafik-Design/Edit",
+        "icon" : "",
+        "color" : c_green_light
+    },
+    {
+        "path" : "Produktion/Grafik-Design/Footage",
+        "icon" : "",
+        "color" : c_green_light
+    },
+    {
+        "path" : "Produktion/Grafik-Design/Output",
+        "icon" : "",
+        "color" : c_green_light
+    },
+    
+    {
+        "path" : "Produktion/Postproduktion/Footage",
+        "icon" : "",
+        "color" : c_green_light
+    },
+    {
+        "path" : "Produktion/Postproduktion/Output",
+        "icon" : "",
+        "color" : c_green_light
+    },
+    {
+        "path" : "Produktion/Postproduktion/Output/AS1-Final",
+        "icon" : "",
+        "color" : c_green_light
+    },
+     {
+        "path" : "Produktion/Postproduktion/Output/Final",
+        "icon" : "",
+        "color" : c_green_light
+    },
+    {
+        "path" : "Produktion/Postproduktion/Output/Prefinal",
+        "icon" : "",
+        "color" : c_green_light
+    },
+    {
+        "path" : "Produktion/Postproduktion/Output/Preview",
+        "icon" : "",
+        "color" : c_green_light
+    },
+    {
+        "path" : "Produktion/Postproduktion/Videoedit",
+        "icon" : "",
+        "color" : c_green_light
+    },
 ]
 
 def set_icons():
