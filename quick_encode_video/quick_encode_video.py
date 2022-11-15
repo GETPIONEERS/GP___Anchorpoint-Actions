@@ -12,7 +12,8 @@ projectPath = str(pathlib.Path(apc.project_path))
 folderPath = apc.folder
 filePath = apc.path
 fileName = apc.filename.rstrip(string.digits).rstrip("-,.")
-# fileNameNew = str.replace(filePath, ".mov", ".mp4")
+
+execPath = os.path.abspath(os.path.dirname(__file__)) # get python script folder path for ffmpeg
 
 # --------------------------------------
 # UI Buttons, Dropdowns, etc. functions
@@ -68,21 +69,19 @@ def button_encode(dialog):
             encodingQuality = 35
     else:
         encodingQuality = customQuality
-    
-    print("encodingQuality:", encodingQuality)
-    print("fileName:", fileName)
-    print("folderPath: ", folderPath)
-    print("filePath:", filePath)
 
-    outputPath = folderPath + "/" + fileName + "_QuickEncode" + ".mp4"
+    outputPath = folderPath + "/" + fileName + "_QuickEncode" + ".mp4" # build path for new file
 
-    print("outputPath:", outputPath)
-    
     # encode video
-    os.system("ffmpeg -i " + filePath + " -c:v libx264 -crf " + str(encodingQuality) + " -preset medium -b:v 0 " + outputPath)
+    os.system(execPath + "\\ffmpeg.exe -i " + filePath + " -c:v libx264 -crf " + str(encodingQuality) + " -preset medium -b:v 0 " + outputPath)
 
+    # close dialog, inform user and output some debug info
     dialog.close()
     ui.show_info("Video is being encoded...", "", 2500)
+
+    print("Encoding Quality (CRF):", encodingQuality)
+    print("Original File:", filePath)
+    print("Output File:", outputPath)
 
 # ---------------------------------
 # Function for closing the dialoge
@@ -90,10 +89,10 @@ def button_encode(dialog):
 def button_close(dialog: anchorpoint.Dialog):
     dialog.close()
 
+
 # --------------
 # Dialog Window 
 # --------------
-
 dropdownQualityValues = ["Very High", "High", "Medium", "Low", "Custom"]
 dropdownResolutionValues = ["75%", "50%", "25%"]
 
@@ -107,7 +106,9 @@ dialog.add_info("The range of the CRF scale is 0-51, where 0 is lossless.<br>San
 dialog.add_switch(True, callback = switch_resolution, var = "switch_resolution").add_text("Keep Resolution")
 dialog.add_text("Resolution: ").add_dropdown("Select Resolution", dropdownResolutionValues, callback = dropdown_resolution, var = "dropdown_resolution")
 dialog.add_button("Encode", callback = button_encode, var = "button_encode", enabled = False)
-# dialog.add_button("TEST", callback = button_test)
+
+# TODO: Implement Resizing
+# TODO: Implement CRF Value Checking
 
 dialog.show()
 dialog.hide_row("input_customQuality")
