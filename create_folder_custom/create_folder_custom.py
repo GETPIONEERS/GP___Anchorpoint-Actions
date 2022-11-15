@@ -3,9 +3,14 @@ from datetime import datetime
 import os
 import pathlib
 import anchorpoint
+import apsync
 
 apc = anchorpoint.Context.instance() # setup anchorpoint context
 ui = anchorpoint.UI() # setup UI
+
+projectPath = str(pathlib.Path(apc.project_path))
+projectName = apsync.get_project(projectPath)
+projectName = projectName.name
 
 
 # DATE AND TIME (YYYY-MM-DD_HH-MM) based folder path calculation for folder creation
@@ -61,18 +66,13 @@ def create_folder(directory_to_create, dialog):
 # Build GUI
 dialog = anchorpoint.Dialog()
 
-dialog.title ="Create custom folder"
+dialog.title ="Create Custom Folder"
 dialog.add_text("<b>What kind of folder do you want to create?</b>")
 dialog.add_button("Date", callback = calculate_date).add_info("YYYY-MM-DD")
 dialog.add_button("Date and Time", callback = calculate_dateandtime).add_info("YYYY-MM-DD_HH-MM")
 dialog.add_empty()
 dialog.add_switch(False, var = "do_project_name").add_text("Include project name")
 dialog.add_info("Enable to include the project name in the folder name.")
-# dialog.add_switch(False, var = "do_custom_text").add_text("Include custom text")
-# dialog.add_info("Enable to include custom text in the folder name.")
-# dialog.add_text("Custom text: ").add_input("", var = "custom_text")
 
 dialog.show()
-
-projectName = pathlib.Path(apc.project_path)
 
