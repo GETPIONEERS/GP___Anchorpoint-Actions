@@ -1,6 +1,7 @@
 from typing_extensions import Self
 import os
 import pathlib
+import string
 import anchorpoint
 import apsync
 
@@ -8,6 +9,10 @@ apc = anchorpoint.Context.instance() # setup anchorpoint context
 ui = anchorpoint.UI() # setup UI
 
 projectPath = str(pathlib.Path(apc.project_path))
+folderPath = apc.folder
+filePath = apc.path
+fileName = apc.filename.rstrip(string.digits).rstrip("-,.")
+# fileNameNew = str.replace(filePath, ".mov", ".mp4")
 
 # --------------------------------------
 # UI Buttons, Dropdowns, etc. functions
@@ -64,10 +69,20 @@ def button_encode(dialog):
     else:
         encodingQuality = customQuality
     
-    print(encodingQuality)
+    print("encodingQuality:", encodingQuality)
+    print("fileName:", fileName)
+    print("folderPath: ", folderPath)
+    print("filePath:", filePath)
+
+    outputPath = folderPath + "/" + fileName + "_QuickEncode" + ".mp4"
+
+    print("outputPath:", outputPath)
     
     # encode video
-    # os.system("ffmpeg -i " + source_file + " -c:v libx265 -crf " + str(crf_value) + "  -preset slower -tag:v hvc1 -b:v 0 " + export_file)
+    os.system("ffmpeg -i " + filePath + " -c:v libx264 -crf " + str(encodingQuality) + " -preset medium -b:v 0 " + outputPath)
+
+    dialog.close()
+    ui.show_info("Video is being encoded...", "", 2500)
 
 # ---------------------------------
 # Function for closing the dialoge

@@ -19,5 +19,5 @@ action:
   script: quick_encode_video.py
 
   register:
-    folder:
-      enable: true
+    file:
+      filter: "*.mp4;*.mov;*.MOV;*.m4v;*.mpg;*.avi;*.wmv;*.3gp;*.3gp2;*.avchd;*.dv;*.mkv"
