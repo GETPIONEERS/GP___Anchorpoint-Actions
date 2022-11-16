@@ -1,7 +1,4 @@
 {
-<<<<<<< HEAD
     "editor.formatOnSave": true,
-=======
->>>>>>> quick_encode_video
     "python.formatting.provider": "black"
 }
