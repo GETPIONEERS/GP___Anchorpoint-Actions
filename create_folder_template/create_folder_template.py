@@ -9,6 +9,43 @@ ui = anchorpoint.UI()  # setup UI
 
 projectPath = str(pathlib.Path(apc.project_path))
 
+# Default Anchorpoint colors
+c_grey_light = "EEEEEE"
+c_grey = "9E9E9E"
+c_grey_dark = "1F2125"
+
+c_purple_bright = "#DCC9F6"
+c_purple = "#7937d4"
+c_purple_dark = "#491393"
+
+c_red_bright = "#F27979"
+c_red = "#D33434"
+c_red_dark = "#6A1414"
+
+c_turk_bright = "#BAFBF0"
+c_turk = "#37D4BB"
+c_turk_dark = "#07705F"
+
+c_yellow_bright = "#F3D582"
+c_yellow = "#D4AA37"
+c_yellow_dark = "#72570E"
+
+c_orange_light = "#FBBC9F"
+c_orange = "#FE7C3F"
+c_orange_dark = "#9F3C0D"
+
+c_green_light = "#D7F5B0"
+c_green = "#9DDB4A"
+c_green_dark = "#447602"
+
+c_blue_light = "#90CAF9"
+c_blue = "#1E88E5"
+c_blue_dark = "#0D47A1"
+
+# Misc Variables
+doGitkeep = None
+doSetIcon = None
+
 # FOLDER DIRECTORIES
 directories = [
     "Beratung/Konzept",
@@ -166,48 +203,10 @@ iconDirectories = [
     {"path": "Produktion/Postproduktion/Videoedit", "icon": "", "color": c_green_light},
 ]
 
-# Default Anchorpoint colors
-c_grey_light = "EEEEEE"
-c_grey = "9E9E9E"
-c_grey_dark = "1F2125"
-
-c_purple_bright = "#DCC9F6"
-c_purple = "#7937d4"
-c_purple_dark = "#491393"
-
-c_red_bright = "#F27979"
-c_red = "#D33434"
-c_red_dark = "#6A1414"
-
-c_turk_bright = "#BAFBF0"
-c_turk = "#37D4BB"
-c_turk_dark = "#07705F"
-
-c_yellow_bright = "#F3D582"
-c_yellow = "#D4AA37"
-c_yellow_dark = "#72570E"
-
-c_orange_light = "#FBBC9F"
-c_orange = "#FE7C3F"
-c_orange_dark = "#9F3C0D"
-
-c_green_light = "#D7F5B0"
-c_green = "#9DDB4A"
-c_green_dark = "#447602"
-
-c_blue_light = "#90CAF9"
-c_blue = "#1E88E5"
-c_blue_dark = "#0D47A1"
-
-# Misc Variables
-doGitkeep = None
-doSetIcon = None
 
 # --------------------------------------------------------
 # Function for creating the folder structure and .gitkeep
 # --------------------------------------------------------
-
-
 def button_create_folders(dialog):
 
     parentDirectory = apc.project_path
