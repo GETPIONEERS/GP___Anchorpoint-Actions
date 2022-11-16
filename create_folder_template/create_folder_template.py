@@ -46,6 +46,7 @@ c_blue_dark = "#0D47A1"
 doGitkeep = None
 doSetIcon = None
 
+# fmt: off
 # FOLDER DIRECTORIES
 directories = [
     "Beratung/Konzept",
@@ -79,16 +80,34 @@ directories = [
 # DIRECTORIES ICONS AND COLORS
 iconDirectories = [
     # Folders with Icons
-    {"path": "Kundendaten", "icon": "emoticons/skull", "color": c_red_bright},
-    {"path": "Beratung", "icon": "music-audio/gramophone", "color": c_blue_light},
-    {"path": "Beratung/Konzept", "icon": "design/guides", "color": c_blue_light},
-    {"path": "Produktion", "icon": "design/paint-brush", "color": c_green_light},
+    {   
+        "path": "Kundendaten", 
+        "icon": "emoticons/skull", 
+        "color": c_red_bright},
+    {   
+        "path": "Beratung", 
+        "icon": "music-audio/gramophone", 
+        "color": c_blue_light
+    },
+    {   
+        "path": "Beratung/Konzept", 
+        "icon": "design/guides", 
+        "color": c_blue_light
+    },
+    {   
+        "path": "Produktion", 
+        "icon": "design/paint-brush", 
+        "color": c_green_light
+    },
     {
         "path": "Produktion/Applikationen",
         "icon": "design/layers",
         "color": c_green_light,
     },
-    {"path": "Produktion/CGI", "icon": "design/3d", "color": c_green_light},
+    {   "path": "Produktion/CGI", 
+        "icon": "design/3d", 
+        "color": c_green_light
+    },
     {
         "path": "Produktion/Grafik-Design",
         "icon": "design/brush",
@@ -99,7 +118,11 @@ iconDirectories = [
         "icon": "design/paper-cutter",
         "color": c_green_light,
     },
-    {"path": "Vorproduktion", "icon": "design/palette", "color": c_orange_light},
+    {
+        "path": "Vorproduktion", 
+        "icon": "design/palette", 
+        "color": c_orange_light
+    },
     {
         "path": "Vorproduktion/Drehbuch",
         "icon": "multimedia/album",
@@ -110,6 +133,7 @@ iconDirectories = [
         "icon": "feedback/feedback-9",
         "color": c_orange_light,
     },
+    
     # Folders with just colors
     {
         "path": "Produktion/Applikationen/360_2D_Events",
@@ -131,13 +155,20 @@ iconDirectories = [
         "icon": "",
         "color": c_green_light,
     },
-    {"path": "Produktion/Applikationen/Output/", "icon": "", "color": c_green_light},
+    {
+        "path": "Produktion/Applikationen/Output/", 
+        "icon": "", 
+        "color": c_green_light},
     {
         "path": "Produktion/Applikationen/Output/WebGL",
         "icon": "",
         "color": c_green_light,
     },
-    {"path": "Produktion/Applikationen/Realtime/", "icon": "", "color": c_green_light},
+    {
+        "path": "Produktion/Applikationen/Realtime/", 
+        "icon": "", 
+        "color": c_green_light
+    },
     {
         "path": "Produktion/Applikationen/Realtime/ThreeJS",
         "icon": "",
@@ -168,18 +199,66 @@ iconDirectories = [
         "icon": "",
         "color": c_green_light,
     },
-    {"path": "Produktion/CGI/previews", "icon": "", "color": c_green_light},
-    {"path": "Produktion/CGI/renderoutput", "icon": "", "color": c_green_light},
-    {"path": "Produktion/CGI/renderpresets", "icon": "", "color": c_green_light},
-    {"path": "Produktion/CGI/sceneassets", "icon": "", "color": c_green_light},
-    {"path": "Produktion/CGI/scenes", "icon": "", "color": c_green_light},
-    {"path": "Produktion/CGI/scenes/xref", "icon": "", "color": c_green_light},
-    {"path": "Produktion/CGI/scenes/xref/objects", "icon": "", "color": c_green_light},
-    {"path": "Produktion/Grafik-Design/Edit", "icon": "", "color": c_green_light},
-    {"path": "Produktion/Grafik-Design/Footage", "icon": "", "color": c_green_light},
-    {"path": "Produktion/Grafik-Design/Output", "icon": "", "color": c_green_light},
-    {"path": "Produktion/Postproduktion/Footage", "icon": "", "color": c_green_light},
-    {"path": "Produktion/Postproduktion/Output", "icon": "", "color": c_green_light},
+    {
+        "path": "Produktion/CGI/previews", 
+        "icon": "", 
+        "color": c_green_light
+    },
+    {
+        "path": "Produktion/CGI/renderoutput", 
+        "icon": "", 
+        "color": c_green_light
+    },
+    {
+        "path": "Produktion/CGI/renderpresets", 
+        "icon": "", 
+        "color": c_green_light
+    },
+    {
+        "path": "Produktion/CGI/sceneassets", 
+        "icon": "", 
+        "color": c_green_light
+    },
+    {
+        "path": "Produktion/CGI/scenes", 
+        "icon": "", 
+        "color": c_green_light
+    },
+    {
+        "path": "Produktion/CGI/scenes/xref", 
+        "icon": "", 
+        "color": c_green_light
+    },
+    {
+        "path": "Produktion/CGI/scenes/xref/objects", 
+        "icon": "", 
+        "color": c_green_light
+    },
+    {
+        "path": "Produktion/Grafik-Design/Edit", 
+        "icon": "", 
+        "color": c_green_light
+    },
+    {
+        "path": "Produktion/Grafik-Design/Footage", 
+        "icon": "", 
+        "color": c_green_light
+    },
+    {
+        "path": "Produktion/Grafik-Design/Output", 
+        "icon": "", 
+        "color": c_green_light
+    },
+    {
+        "path": "Produktion/Postproduktion/Footage", 
+        "icon": "", 
+        "color": c_green_light
+    },
+    {
+        "path": "Produktion/Postproduktion/Output", 
+        "icon": "", 
+        "color": c_green_light
+    },
     {
         "path": "Produktion/Postproduktion/Output/AS1-Final",
         "icon": "",
@@ -200,9 +279,13 @@ iconDirectories = [
         "icon": "",
         "color": c_green_light,
     },
-    {"path": "Produktion/Postproduktion/Videoedit", "icon": "", "color": c_green_light},
+    {
+        "path": "Produktion/Postproduktion/Videoedit", 
+        "icon": "", 
+        "color": c_green_light
+    },
 ]
-
+# fmt: one
 
 # --------------------------------------------------------
 # Function for creating the folder structure and .gitkeep
