@@ -19,6 +19,7 @@ action:
   actions:
     - gp::actions::createfoldertemplate
     - gp::actions::createfoldercustom
+    - gp::actions::quickencodevideo
 
   platforms:
     - win
