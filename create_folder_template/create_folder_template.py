@@ -83,7 +83,8 @@ iconDirectories = [
     {   
         "path": "Kundendaten", 
         "icon": "emoticons/skull", 
-        "color": c_red_bright},
+        "color": c_red_bright
+    },
     {   
         "path": "Beratung", 
         "icon": "music-audio/gramophone", 
