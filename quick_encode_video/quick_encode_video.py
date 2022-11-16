@@ -1,9 +1,10 @@
-from typing_extensions import Self
 import os
 import pathlib
 import string
+
 import anchorpoint
 import apsync
+from typing_extensions import Self
 
 apc = anchorpoint.Context.instance()  # setup anchorpoint context
 ui = anchorpoint.UI()  # setup UI
@@ -19,6 +20,8 @@ execPath = os.path.abspath(os.path.dirname(__file__))
 # --------------------------------------
 # UI Buttons, Dropdowns, etc. functions
 # --------------------------------------
+def button_debug(value):
+    print(dialog.get_value("dropdown_resolution"))
 
 
 def button_test(value):
@@ -46,8 +49,6 @@ def dropdown_resolution(dialog, value):
 
 
 # function for enablding / disabling encode button
-
-
 def check_button_encode():
     if (dialog.get_value("dropdown_quality")) != "Select Quality":  # is quality set
         if (dialog.get_value("switch_resolution")) == True:  # is switch enabled
@@ -63,15 +64,13 @@ def check_button_encode():
 # ----------------------
 # Function for encoding
 # ----------------------
-
-
 def button_encode(dialog):
     # get all relevant values from the interface
     quality = dialog.get_value("dropdown_quality")
     customQuality = dialog.get_value("input_customQuality")
     resolution = dialog.get_value("dropdown_resolution")
 
-    # set up encoding quality
+    # set encoding quality
     encodingQuality = None
     if quality != "Custom":
         if quality == "Very High":
@@ -85,35 +84,61 @@ def button_encode(dialog):
     else:
         encodingQuality = customQuality
 
-    outputPath = (
-        folderPath + "/" + fileName + "_QuickEncode" + ".mp4"
-    )  # build path for new file
+    # set encoding resolution / scale
+    encodingResolution = None
+    if (dialog.get_value("switch_resolution")) == False:
+        if resolution != "Keep Resolution":
+            if resolution == "75%":
+                encodingResolution = "-vf scale=iw*.75:ih*.75 "
+            elif resolution == "50%":
+                encodingResolution = "-vf scale=iw*.5:ih*.5 "
+            elif resolution == "25%":
+                encodingResolution = "-vf scale=iw*.25:ih*.25 "
+        else:
+            encodingResolution = ""
+    else:
+        encodingResolution = ""
+
+    # build path for new file
+    outputPath = folderPath + "/" + fileName + "_QuickEncode" + ".mp4"
+
+    # inform user
+    ui.show_info("Video is being encoded...", "", 2500)
 
     # encode video
     os.system(
         execPath
-        + "\\ffmpeg.exe -i "
+        + "\\ffmpeg.exe -y -i "
         + filePath
         + " -c:v libx264 -crf "
         + str(encodingQuality)
         + " -preset medium -b:v 0 "
+        + str(encodingResolution)
         + outputPath
     )
 
-    # close dialog, inform user and output some debug info
-    dialog.close()
-    ui.show_info("Video is being encoded...", "", 2500)
+    # print(
+    #     execPath
+    #     + "\\ffmpeg.exe -i "
+    #     + filePath
+    #     + " -c:v libx264 -crf "
+    #     + str(encodingQuality)
+    #     + " -preset medium -b:v 0 "
+    #     + str(encodingResolution)
+    #     + outputPath
+    # )
 
-    print("Encoding Quality (CRF):", encodingQuality)
-    print("Original File:", filePath)
-    print("Output File:", outputPath)
+    # print("Encoding Quality (CRF):", encodingQuality)
+    # print("Original File:", filePath)
+    # print("Output File:", outputPath)
+
+    # close dialog
+    dialog.close()
 
 
 # ---------------------------------
 # Function for closing the dialoge
 # ---------------------------------
-
-
 def button_close(dialog: anchorpoint.Dialog):
     dialog.close()
 
@@ -154,8 +179,8 @@ dialog.add_text("Resolution: ").add_dropdown(
     var="dropdown_resolution",
 )
 dialog.add_button("Encode", callback=button_encode, var="button_encode", enabled=False)
+# dialog.add_button("DEBUG", callback=button_debug)
 
-# TODO: Implement Resizing
 # TODO: Implement CRF Value Checking
 
 dialog.show()
