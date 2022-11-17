@@ -36,16 +36,20 @@ def dropdown_quality(dialog, value):
 
 
 def input_customQuality(dialog, value):
-    if value == "":
-        dialog.set_value("input_customQuality", "0")
-    else:
-        value = int(value)
-        if value == 0:
-            pass
-        elif value < 0:
-            dialog.set_value("input_customQuality", "0")
-        elif value > 51:
-            dialog.set_value("input_customQuality", "51")
+    # value = value.lstrip("0")
+
+    # dialog.set_value("input_customQuality", value)
+
+    # if value == "":
+    #     dialog.set_value("input_customQuality", "0")
+    # else:
+    #     value = int(value)
+    #     if value < 0:
+    #         dialog.set_value("input_customQuality", "0")
+    #     elif value > 51:
+    #         dialog.set_value("input_customQuality", "51")
+
+    check_button_encode()
 
 
 def switch_resolution(dialog, value):
@@ -59,6 +63,7 @@ def dropdown_resolution(dialog, value):
 
 # function for enablding / disabling encode button
 def check_button_encode():
+    # enable / disable encode button
     if (dialog.get_value("dropdown_quality")) != "Select Quality":  # is quality set
         if (dialog.get_value("switch_resolution")) == True:  # is switch enabled
             dialog.set_enabled("button_encode", True)
@@ -67,6 +72,17 @@ def check_button_encode():
         ) != "Select Resolution":  # is resolution set
             dialog.set_enabled("button_encode", True)
         else:
+            dialog.set_enabled("button_encode", False)
+
+    # enable / disable encode button by crf custom value
+    if (
+        dialog.get_value("dropdown_quality")
+    ) == "Custom":  # is dropdown set to "custom".
+        if (dialog.get_value("input_customQuality")) == "":
+            dialog.set_enabled("button_encode", False)
+        elif (dialog.get_value("input_customQuality")) < "0":
+            dialog.set_enabled("button_encode", False)
+        elif (dialog.get_value("input_customQuality")) > "51":
             dialog.set_enabled("button_encode", False)
 
 
