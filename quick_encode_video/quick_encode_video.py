@@ -35,8 +35,17 @@ def dropdown_quality(dialog, value):
     check_button_encode()
 
 
-def input_customQuality(dialog):
-    pass
+def input_customQuality(dialog, value):
+    if value == "":
+        dialog.set_value("input_customQuality", "0")
+    else:
+        value = int(value)
+        if value == 0:
+            pass
+        elif value < 0:
+            dialog.set_value("input_customQuality", "0")
+        elif value > 51:
+            dialog.set_value("input_customQuality", "51")
 
 
 def switch_resolution(dialog, value):
@@ -168,6 +177,9 @@ dialog.add_info(
 dialog.add_info(
     "The range of the CRF scale is 0-51, where 0 is lossless.<br>Sane values are 17-28. ~17 is visually nearly lossless.",
     var="info_quality_crf",
+)
+dialog.add_info(
+    "A new file with the original filename and _QuickEncode will be written. If the file already exists it will be overwritten.",
 )
 dialog.add_switch(True, callback=switch_resolution, var="switch_resolution").add_text(
     "Keep Resolution"
