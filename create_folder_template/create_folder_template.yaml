@@ -5,7 +5,7 @@
 
 version: 1.0
 action:
-  name: Create Project Folder Template
+  name: Set Project Folder Colors & Icons
 
   version: 1
   id: gp::actions::createfoldertemplate
