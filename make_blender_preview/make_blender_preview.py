@@ -20,12 +20,8 @@ def render_blender(blender_path, selected_files, yaml_dir):
     progress = ap.Progress("Blender Preview", "Rendering Images", infinite = True, cancelable = len(selected_files) > 1)
 
     for file in selected_files:
-        output = file
-        
-        index = output.rfind(".")
-        output = (output[:index])
+        output = (file[:file.rfind(".")])
 
-        print(output)
         if progress.canceled:
             for file in ctx.selected_files:
                 ui.finish_busy(file)
@@ -36,13 +32,16 @@ def render_blender(blender_path, selected_files, yaml_dir):
                 blender_path,
                 "-b", file,
                 "-E", "BLENDER_EEVEE",
-                "-F", "PNG",
+                "-F", "JPEG",
                 "-P", f"{yaml_dir}/make_blender_preview_eevee_settings.py",
                 "-o", f"{output}#",
                 "-f", "0",
             ]
         )
-        
+
+    for file in selected_files:
+        os.rename((file[:file.rfind(".")]) + "0" + ".jpg", (file[:file.rfind(".")]) + ".jpg")
+
     ui.show_success("Renders Successful")
 
 # First, check if the tool can be found on the machine

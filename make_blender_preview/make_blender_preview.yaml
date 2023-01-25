@@ -11,7 +11,7 @@ action:
   id: "gp::actions::makeblenderpreview"
   type: python
   author: "René Frassek (GETPIONEERS GmbH)"
-  description: "Creates a seperate preview image (not a thumbnail) from a *.blend file"
+  description: "Creates a seperate preview jpeg (not a thumbnail) from a *.blend file"
   category: "GETPIONEERS/Folders"
   icon:
     path: "/icons/GP_Icon.svg"
