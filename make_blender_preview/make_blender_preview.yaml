@@ -1,0 +1,28 @@
+# Anchorpoint Markup Language
+# Predefined Variables: e.g. ${path}
+# Environment Variables: e.g. ${MY_VARIABLE}
+# Full documentation: https://docs.anchorpoint.app/Actions/Reference
+
+version: "1.0"
+action:
+  name: "Make Blender Preview"
+
+  version: 1
+  id: "gp::actions::makeblenderpreview"
+  type: python
+  author: "René Frassek (GETPIONEERS GmbH)"
+  description: "Creates a seperate preview image (not a thumbnail) from a *.blend file"
+  category: "GETPIONEERS/Folders"
+  icon:
+    path: "/icons/GP_Icon.svg"
+
+  script: "make_blender_preview.py"
+  inputs:
+    blender:
+      message: Path to Blender
+      browse: file
+      store: user
+
+  register:
+    file:
+      filter: "*.blend" #match *.blend files
