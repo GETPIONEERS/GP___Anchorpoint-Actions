@@ -14,13 +14,15 @@ def create_random_text():
     return str(ran)
 
 def render_blender(blender_path, selected_files, yaml_dir):
-    # output = "//" + ctx.filename
-
-    # Show Progress
+    
+    # show progress
     progress = ap.Progress("Blender Preview", "Rendering Images", infinite = True, cancelable = len(selected_files) > 1)
 
     for file in selected_files:
         output = (file[:file.rfind(".")])
+        
+        # delete old files if they exist
+        os.remove((file[:file.rfind(".")]) + ".jpg")
 
         if progress.canceled:
             for file in ctx.selected_files:
@@ -39,6 +41,7 @@ def render_blender(blender_path, selected_files, yaml_dir):
             ]
         )
 
+    # rename files after render due to blender command line always inserting frame number into the file name
     for file in selected_files:
         os.rename((file[:file.rfind(".")]) + "0" + ".jpg", (file[:file.rfind(".")]) + ".jpg")
 
