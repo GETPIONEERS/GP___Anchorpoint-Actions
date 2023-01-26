@@ -12,7 +12,7 @@ action:
   type: python
   author: René Frassek (GETPIONEERS GmbH)
   description: Creates default GETPIONEERS project folders
-  category: "GETPIONEERS/Folders"
+  category: GETPIONEERS
   icon:
     path: /icons/GP_Icon.svg
 

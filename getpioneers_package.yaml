@@ -12,7 +12,7 @@ action:
   enable: true
   author: René Frassek (GETPIONEERS GmbH)
   description: GETPIONEERS Anchorpoint Actions
-  details: 'This is the GETPIONEERS Anchorpoint Actions Package.'
+  details: This is the GETPIONEERS Anchorpoint Actions Package.
   icon:
     path: Package_Icon.svg
 
@@ -20,6 +20,7 @@ action:
     - gp::actions::createfoldertemplate
     - gp::actions::createfoldercustom
     - gp::actions::quickencodevideo
+    - gp::actions::makeblenderpreview
 
   platforms:
     - win

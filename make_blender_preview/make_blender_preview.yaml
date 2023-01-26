@@ -3,20 +3,20 @@
 # Environment Variables: e.g. ${MY_VARIABLE}
 # Full documentation: https://docs.anchorpoint.app/Actions/Reference
 
-version: "1.0"
+version: 1.0
 action:
-  name: "Make Blender Preview"
+  name: Make Blender Preview
 
   version: 1
-  id: "gp::actions::makeblenderpreview"
+  id: gp::actions::makeblenderpreview
   type: python
-  author: "René Frassek (GETPIONEERS GmbH)"
-  description: "Creates a seperate preview jpeg (not a thumbnail) from a *.blend file"
-  category: "GETPIONEERS/Folders"
+  author: René Frassek (GETPIONEERS GmbH)
+  description: Creates a seperate preview jpeg (not a thumbnail) from a *.blend file
+  category: GETPIONEERS
   icon:
-    path: "/icons/GP_Icon.svg"
+    path: /icons/GP_Icon.svg
 
-  script: "make_blender_preview.py"
+  script: make_blender_preview.py
   inputs:
     blender:
       message: Path to Blender
