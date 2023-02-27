@@ -21,6 +21,7 @@ action:
     - gp::actions::createfoldercustom
     - gp::actions::quickencodevideo
     - gp::actions::makeblenderpreview
+    - gp::actions::cloudDriveMarketing
 
   platforms:
     - win
