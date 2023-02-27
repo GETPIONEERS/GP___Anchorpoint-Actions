@@ -18,10 +18,10 @@ action:
 
   script: "code/unmountMarketing.py"
 
-  # register:
-  #   drive:
-  #     enable: True
-
   register:
-    folder:
-      enable: true
+    drive:
+      enable: True
+
+  # register:
+  #   folder:
+  #     enable: true
