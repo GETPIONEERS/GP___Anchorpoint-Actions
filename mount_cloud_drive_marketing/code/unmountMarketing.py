@@ -1,5 +1,6 @@
 import os
 import platform
+
 import apsync as aps
 import anchorpoint as ap
 
@@ -30,3 +31,6 @@ def on_removed_from_workspace(ctx: ap.Context):
 if __name__ == "__main__":
     kill_rclone()
     remove_auto_mount(ap.Context.instance())
+
+
+# TODO: Implement hardcoded Batch File

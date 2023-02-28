@@ -52,13 +52,15 @@ def get_unused_drives():
     return drives
 
 
-def create_bat_file(command, drive):
-    app_data = os.getenv("APPDATA")
-    startup_path = (
-        f"{app_data}/Microsoft/Windows/Start Menu/Programs/Startup/ap_mount_{drive}.bat"
-    )
-    with open(startup_path, "w") as f:
-        f.write(command)
+# TODO: Implement hardcoded Batch File
+
+# def create_bat_file(command, drive):
+#     app_data = os.getenv("APPDATA")
+#     startup_path = (
+#         f"{app_data}/Microsoft/Windows/Start Menu/Programs/Startup/ap_mount_{drive}.bat"
+#     )
+#     with open(startup_path, "w") as f:
+#         f.write(command)E
 
 
 def setup_mount(drive, workspace_id, configuration):
@@ -161,7 +163,7 @@ def setup_mount(drive, workspace_id, configuration):
     config_arguments.append(create_location_arguments())
 
     if isWin():
-        config_arguments.append(f"{drive}:")
+        config_arguments.append(f"Q:")  # CHANGE HERE: Drive Letter
     else:
         if not os.path.isdir(drive):
             if "/Volumes" in drive:
@@ -181,7 +183,7 @@ def setup_mount(drive, workspace_id, configuration):
         "--vfs-cache-mode",
         "full",
         "--vfs-cache-max-age",
-        "10000h",
+        "744h",  # CHANGE HERE: Lifetime of the cache
         "--vfs-read-chunk-size",
         "512M",
         "--vfs-fast-fingerprint",
@@ -194,14 +196,14 @@ def setup_mount(drive, workspace_id, configuration):
         cache_path,
         "--dir-cache-time",
         "5s",
-        "--volname=Anchorpoint",
+        "--volname=M-Marketing Cloud",
         "--file-perms=0777",
         "--dir-perms=0777",
         "--use-json-log",
         "--stats",
         "1s",
-        "--log-level",
-        "INFO",
+        # "--log-level",
+        # "INFO",
     ]
 
     arguments = base_arguments + config_arguments + rclone_arguments
@@ -251,6 +253,11 @@ def run_rclone(arguments, drive, workspace_id, startupinfo=None):
     progress = None
     global_progress = ap.Progress("Mounting Cloud Drive", show_loading_screen=True)
 
+    print("arguments: ")
+    print(arguments)
+    print("startupinfo: ")
+    print(startupinfo)
+
     p = subprocess.Popen(
         args=arguments,
         startupinfo=startupinfo,
@@ -265,6 +272,9 @@ def run_rclone(arguments, drive, workspace_id, startupinfo=None):
     count_uploaded = 0
 
     for line in p.stdout:
+
+        # print(line)
+
         myjson = is_json(line)
 
         if count_msg in line:
@@ -478,8 +488,11 @@ def show_options(mount_path: str, workspace_id: str, configuration):
             "Mount",
             callback=lambda d: dialog_setup_mount(d, workspace_id, configuration),
         )
+        setup_mount(
+            drives[0], workspace_id, configuration
+        )  # IGNORE DRIVE LETTER PARAMETER AND STRAIGHT UP MOUNT TO DEFINED DRIVE LETTER ABOVE
+        # dialog.show()
 
-        dialog.show()
     else:
         path = mount_path
         if path == "":
