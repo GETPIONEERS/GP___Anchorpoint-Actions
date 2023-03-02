@@ -60,7 +60,7 @@ def get_unused_drives():
 #         f"{app_data}/Microsoft/Windows/Start Menu/Programs/Startup/ap_mount_{drive}.bat"
 #     )
 #     with open(startup_path, "w") as f:
-#         f.write(command)E
+#         f.write(command)
 
 
 def setup_mount(drive, workspace_id, configuration):
@@ -488,9 +488,9 @@ def show_options(mount_path: str, workspace_id: str, configuration):
             "Mount",
             callback=lambda d: dialog_setup_mount(d, workspace_id, configuration),
         )
-        setup_mount(
-            drives[0], workspace_id, configuration
-        )  # IGNORE DRIVE LETTER PARAMETER AND STRAIGHT UP MOUNT TO DEFINED DRIVE LETTER ABOVE
+        setup_mount(drives[0], workspace_id, configuration)
+        # IGNORE DRIVE LETTER PARAMETER AND STRAIGHT UP MOUNT TO DEFINED DRIVE LETTER ABOVE
+
         # dialog.show()
 
     else:
