@@ -24,6 +24,10 @@ Creates a seperate preview jpeg (not a thumbnail) from a \*.blend file
 
 Re-encodes videos for preview purposes or other uses
 
+#### mount_cloud_drive_marketing
+
+Mounts the Marketing Cloud Drive Bucket
+
 ## Q&A between GETPIONEERS and Anchorpoint
 
 #### Discord 1
