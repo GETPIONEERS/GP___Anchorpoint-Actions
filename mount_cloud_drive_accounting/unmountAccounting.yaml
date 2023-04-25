@@ -1,0 +1,27 @@
+# Anchorpoint Markup Language
+# Predefined Variables: e.g. ${path}
+# Environment Variables: e.g. ${MY_VARIABLE}
+# Full documentation: https://docs.anchorpoint.app/Actions/Reference
+
+version: 1.0
+action:
+  name: Unmount All
+
+  version: 1
+  id: "gp::Actions::unmountAccounting"
+  category: GETPIONEERS
+  type: python
+  author: Anchorpoint Software GmbH & René Frassek (GETPIONEERS GmbH)
+  description: "Deactivates this cloud drive"
+  icon:
+    path: icons/driveStrike.svg
+
+  script: "code/unmountAccounting.py"
+
+  register:
+    drive:
+      enable: True
+
+  # register:
+  #   folder:
+  #     enable: true
