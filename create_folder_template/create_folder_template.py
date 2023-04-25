@@ -1,4 +1,5 @@
 from typing_extensions import Self
+import os
 import pathlib
 import anchorpoint
 import apsync
@@ -46,6 +47,35 @@ doGitkeep = None
 doSetIcon = None
 
 # fmt: off
+# FOLDER DIRECTORIES
+directories = [
+    "Beratung/Konzept",
+    "Kundendaten",
+    "Produktion/Applikationen/360_2D_Events/3DVista",
+    "Produktion/Applikationen/360_2D_Events/krpano",
+    "Produktion/Applikationen/360_2D_Events/PTGui",
+    "Produktion/Applikationen/Output/WebGL",
+    "Produktion/Applikationen/Realtime/ThreeJS",
+    "Produktion/Applikationen/Realtime/UEngine",
+    "Produktion/Applikationen/Realtime/Unity",
+    "Produktion/Applikationen/Website_HTML/Bootstrap/HTML",
+    "Produktion/CGI/previews",
+    "Produktion/CGI/renderoutput",
+    "Produktion/CGI/renderpresets",
+    "Produktion/CGI/sceneassets",
+    "Produktion/CGI/scenes/xref/objects",
+    "Produktion/Grafik-Design/Edit",
+    "Produktion/Grafik-Design/Footage",
+    "Produktion/Grafik-Design/Output",
+    "Produktion/Postproduktion/Footage",
+    "Produktion/Postproduktion/Output/AS1-Final",
+    "Produktion/Postproduktion/Output/Final",
+    "Produktion/Postproduktion/Output/Prefinal",
+    "Produktion/Postproduktion/Output/Preview",
+    "Produktion/Postproduktion/Videoedit",
+    "Vorproduktion/Drehbuch",
+    "Vorproduktion/Inspiration",
+]
 
 # DIRECTORIES ICONS AND COLORS
 iconDirectories = [
@@ -256,12 +286,52 @@ iconDirectories = [
         "color": c_green_light
     },
 ]
-# fmt: on
+# fmt: one
+
+# --------------------------------------------------------
+# Function for creating the folder structure and .gitkeep
+# --------------------------------------------------------
+def button_create_folders(dialog):
+
+    parentDirectory = apc.project_path
+
+    for currentDirectory in directories:
+
+        doGitkeep = dialog.get_value("doGitkeep")
+        doSetIcons = dialog.get_value("doSetIcons")
+
+        # append paths for folders and .gitkeep
+        directoryToCreate = parentDirectory + "/" + currentDirectory
+        directoryToCreateFile = parentDirectory + "/" + currentDirectory + "/.gitkeep"
+
+        # create folders
+        mode = 0o666
+        exist_ok = True
+        os.makedirs(directoryToCreate, mode, exist_ok)
+        print("Directory " + directoryToCreate + " created")
+
+        # check if .gitkeep files should be written
+        if doGitkeep == True:
+            open(directoryToCreateFile, "w")
+            print("Directory " + directoryToCreateFile + " created")
+
+    # decide which info panel to display (.gitkeep yes / no)
+    if doGitkeep == True:
+        if doSetIcons == True:
+            set_icons()
+        ui.show_info("Folders & .gitkeep files successfully created.", "", 2500)
+    else:
+        if doSetIcons == True:
+            set_icons()
+        ui.show_info("Folders successfully created.", "", 2500)
+
+    dialog.close()
+
 
 # -----------------------------------------------
 # Function for setting icons on existing folders
 # -----------------------------------------------
-def button_set_icons(dialog):
+def set_icons():
     for directory in iconDirectories:
         relPath = str.replace(projectPath + "/" + directory["path"], "\\", "/")
         icon = directory["icon"]
@@ -282,14 +352,24 @@ def button_close(dialog: anchorpoint.Dialog):
 # --------------
 dialog = anchorpoint.Dialog()
 
-dialog.title = "Set Project Folder Colors & Icons"
+dialog.title = "Create Project Folder Template"
 dialog.add_text(
-    "<b>Do you really want to overwrite all icons and colors in this folder?</b>"
+    "<b>Do you really want to create the entire folder structure in this project?</b>"
 )
 dialog.add_text("Path: " + apc.project_path)
+dialog.add_empty()
+dialog.add_checkbox(True, var="doGitkeep").add_text("Create .gitkeep files")
 dialog.add_info(
-    "Warning: Anchorpoint might freeze for a couple of seconds. This is normal."
+    "By default, Git ignores all folders without a file in it. This will create a .gitkeep file in every last folder <br>in a chain to make sure every user gets every folder. This should be enabled in most cases."
 )
-dialog.add_button("Set Icons & Colors", callback=button_set_icons)
+dialog.add_checkbox(True, var="doSetIcons").add_text("Set icons and colors")
+dialog.add_info(
+    "Sets default icons and colors after creating the folders. This should be enabled in most cases."
+)
+dialog.add_empty()
+dialog.add_info(
+    "Warning: Anchorpoint will freeze for a couple of seconds. This is normal."
+)
+dialog.add_button("Create Folders", callback=button_create_folders)
 
 dialog.show()
