@@ -5,23 +5,19 @@
 
 version: 1.0
 action:
-  name: GETPIONEERS Actions
+  name: Create Folder Template
 
-  id: gp::actions::package
+  id: gp::actions::create_folder_template
   type: package
   enable: true
   author: René Frassek (GETPIONEERS GmbH)
-  description: GETPIONEERS Anchorpoint Actions
-  details: This is the GETPIONEERS Anchorpoint Actions Package.
+  description: Creates default GETPIONEERS project folders
+  details: Creates default GETPIONEERS project folders
   icon:
-    path: Package_Icon.svg
+    path: /icons/GP_Icon.svg
 
   actions:
     - gp::actions::createfoldertemplate
-    - gp::actions::createfoldercustom
-    - gp::actions::quickencodevideo
-    - gp::actions::makeblenderpreview
-    - gp::actions::cloudDriveMarketing
 
   platforms:
     - win

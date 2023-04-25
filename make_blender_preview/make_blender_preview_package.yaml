@@ -1,0 +1,23 @@
+# Anchorpoint Markup Language
+# Predefined Variables: e.g. ${path}
+# Environment Variables: e.g. ${MY_VARIABLE}
+# Full documentation: https://docs.anchorpoint.app/Actions/Reference
+
+version: 1.0
+action:
+  name: Make Blender Preview
+
+  id: gp::actions::make_blender_preview
+  type: package
+  enable: true
+  author: René Frassek (GETPIONEERS GmbH)
+  description: Creates a seperate preview jpeg (not a thumbnail) from a *.blend file.
+  details: Creates a seperate preview jpeg (not a thumbnail) from a *.blend file.
+  icon:
+    path: /icons/GP_Icon.svg
+
+  actions:
+    - gp::actions::makeblenderpreview
+
+  platforms:
+    - win
