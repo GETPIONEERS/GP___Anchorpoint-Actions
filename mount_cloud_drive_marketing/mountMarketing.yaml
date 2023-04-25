@@ -8,7 +8,7 @@ action:
   name: Mount Marketing Cloud Drive
 
   version: 1
-  id: "gp::Actions::mountMarketing"
+  id: "gp::actions::mount_marketing"
   category: GETPIONEERS
   type: python
   author: Anchorpoint Software GmbH & René Frassek (GETPIONEERS GmbH)

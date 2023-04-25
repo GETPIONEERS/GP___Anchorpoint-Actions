@@ -8,7 +8,7 @@ action:
   name: Connect Cloud Drive (M-Marketing)
 
   version: 1
-  id: "gp::Actions::cloudDriveMarketing"
+  id: "gp::actions::cloud_drive_marketing"
   category: GETPIONEERS
   type: package
   enable: true
@@ -29,5 +29,5 @@ action:
     
   settings: code/package_settings.py
   actions:
-    - ap::cloudDrive::mountMarketing
-    - ap::cloudDrive::unmountMarketing
+    - gp::actions::mount_marketing
+    - gp::actions::unmount_marketing
