@@ -18,15 +18,6 @@ action:
 
   actions:
     - gp::actions::createfoldertemplate
-<<<<<<< HEAD:getpioneers_package.yaml
-    - gp::actions::createfoldercustom
-    - gp::actions::quickencodevideo
-    - gp::actions::makeblenderpreview
-    - gp::actions::cloudDriveMarketing
-    - gp::actions::cloudDriveHR
-    - gp::actions::cloudDriveAccounting
-=======
->>>>>>> dev:create_folder_template/create_folder_template_package.yaml
 
   platforms:
     - win
