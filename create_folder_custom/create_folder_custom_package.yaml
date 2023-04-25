@@ -1,0 +1,23 @@
+# Anchorpoint Markup Language
+# Predefined Variables: e.g. ${path}
+# Environment Variables: e.g. ${MY_VARIABLE}
+# Full documentation: https://docs.anchorpoint.app/Actions/Reference
+
+version: 1.0
+action:
+  name: Create Custom Folder
+
+  id: gp::actions::create_folder_custom
+  type: package
+  enable: true
+  author: René Frassek (GETPIONEERS GmbH)
+  description: Creates folder with custom name like the current Date, current Date and time, etc.
+  details: Creates folder with custom name like the current Date, current Date and time, etc.
+  icon:
+    path: /icons/GP_Icon.svg
+
+  actions:
+    - gp::actions::createfoldercustom
+
+  platforms:
+    - win

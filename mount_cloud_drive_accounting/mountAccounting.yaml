@@ -8,7 +8,7 @@ action:
   name: Mount Accounting Cloud Drive
 
   version: 1
-  id: "gp::Actions::mountAccounting"
+  id: "gp::actions::mount_accounting"
   category: GETPIONEERS
   type: python
   author: Anchorpoint Software GmbH & René Frassek (GETPIONEERS GmbH)

@@ -8,7 +8,7 @@ action:
   name: Unmount All
 
   version: 1
-  id: "gp::Actions::unmountMarketing"
+  id: "gp::actions::unmount_marketing"
   category: GETPIONEERS
   type: python
   author: Anchorpoint Software GmbH & René Frassek (GETPIONEERS GmbH)

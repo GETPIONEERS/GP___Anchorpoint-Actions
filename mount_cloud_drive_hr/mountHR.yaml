@@ -8,7 +8,7 @@ action:
   name: Mount HR Cloud Drive
 
   version: 1
-  id: "gp::Actions::mountHR"
+  id: "gp::actions::mount_hr"
   category: GETPIONEERS
   type: python
   author: Anchorpoint Software GmbH & René Frassek (GETPIONEERS GmbH)

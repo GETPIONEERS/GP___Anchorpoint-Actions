@@ -1,0 +1,23 @@
+# Anchorpoint Markup Language
+# Predefined Variables: e.g. ${path}
+# Environment Variables: e.g. ${MY_VARIABLE}
+# Full documentation: https://docs.anchorpoint.app/Actions/Reference
+
+version: 1.0
+action:
+  name: Quick Encode Video
+
+  id: gp::actions::quick_encode_video
+  type: package
+  enable: true
+  author: René Frassek (GETPIONEERS GmbH)
+  description: Quickly encode videos for previews or other usecases.
+  details: Quickly encode videos for previews or other usecases.
+  icon:
+    path: /icons/GP_Icon.svg
+
+  actions:
+    - gp::actions::quickencodevideo
+
+  platforms:
+    - win

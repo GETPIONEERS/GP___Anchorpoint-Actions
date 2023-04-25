@@ -5,15 +5,15 @@
 
 version: 1.0
 action:
-  name: Connect Cloud Drive (H-HR)
+  name: Connect Cloud Drive (B-Buchhaltung)
 
   version: 1
-  id: "gp::Actions::cloudDriveHR"
+  id: "gp::Actions::cloudDriveAccounting"
   category: GETPIONEERS
   type: package
   enable: true
   author: Anchorpoint Software GmbH & René Frassek (GETPIONEERS GmbH)
-  description: "Connect to the GETPIONEERS H-HR Clouddrive"
+  description: "Connect to the GETPIONEERS B-Buchhaltung Clouddrive"
   icon:
     path: icons/driveCloud.svg
 
@@ -29,5 +29,5 @@ action:
     
   settings: code/package_settings.py
   actions:
-    - ap::cloudDrive::mountHR
-    - ap::cloudDrive::unmountHR
+    - gp::actions::mount_accounting
+    - gp::actions::unmount_accounting
