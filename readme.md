@@ -28,6 +28,14 @@ Re-encodes videos for preview purposes or other uses
 
 Mounts the Marketing Cloud Drive Bucket
 
+#### mount_cloud_drive_hr
+
+Mounts the HR Cloud Drive Bucket
+
+#### mount_cloud_drive_accounting
+
+Mounts the Accounting Cloud Drive Bucket
+
 ## Q&A between GETPIONEERS and Anchorpoint
 
 #### Discord 1
