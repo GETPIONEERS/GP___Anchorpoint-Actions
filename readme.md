@@ -36,7 +36,7 @@ Mounts the HR Cloud Drive Bucket
 
 Mounts the Accounting Cloud Drive Bucket
 
-## Q&A between GETPIONEERS and Anchorpoint
+## Q&A Anchorpoint
 
 #### Discord 1
 
