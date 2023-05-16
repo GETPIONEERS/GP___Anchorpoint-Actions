@@ -5,7 +5,7 @@
 
 version: 1.0
 action:
-  name: Connect Cloud Drive (X-Bibs)
+  name: Connect Cloud Drive (L-Library)
 
   version: 1
   id: "gp::actions::cloud_drive_library"
@@ -13,7 +13,7 @@ action:
   type: package
   enable: true
   author: Anchorpoint Software GmbH & René Frassek (GETPIONEERS GmbH)
-  description: "Connect to the GETPIONEERS X-Library Clouddrive"
+  description: "Connect to the GETPIONEERS L-Library Clouddrive"
   icon:
     path: icons/driveCloud.svg
 

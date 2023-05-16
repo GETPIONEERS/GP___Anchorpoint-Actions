@@ -163,7 +163,7 @@ def setup_mount(drive, workspace_id, configuration):
     config_arguments.append(create_location_arguments())
 
     if isWin():
-        config_arguments.append(f"Z:")  # CHANGE HERE: Drive Letter
+        config_arguments.append(f"L:")  # CHANGE HERE: Drive Letter
     else:
         if not os.path.isdir(drive):
             if "/Volumes" in drive:
@@ -196,7 +196,7 @@ def setup_mount(drive, workspace_id, configuration):
         cache_path,
         "--dir-cache-time",
         "5s",
-        "--volname=X-Bibs Cloud",
+        "--volname=L-Library Cloud",
         "--file-perms=0777",
         "--dir-perms=0777",
         "--use-json-log",
