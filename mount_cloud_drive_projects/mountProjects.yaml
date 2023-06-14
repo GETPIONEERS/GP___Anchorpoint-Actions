@@ -5,7 +5,7 @@
 
 version: 1.0
 action:
-  name: Mount HR Cloud Drive
+  name: Mount Projects Cloud Drive
 
   version: 1
   id: "gp::actions::mount_projects"
