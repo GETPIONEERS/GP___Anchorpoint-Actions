@@ -19,10 +19,10 @@ action:
   script: "code/mountProjects.py"
   settings: code/mount_action_settings.py
 
-  # register:
-  #   new_drive:
-  #     enable: true
-
   register:
-    folder:
+    new_drive:
       enable: true
+
+  # register:
+  #   folder:
+  #     enable: true

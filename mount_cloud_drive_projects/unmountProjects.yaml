@@ -18,10 +18,10 @@ action:
 
   script: "code/unmountProjects.py"
 
-  # register:
-  #   drive:
-  #     enable: True
-
   register:
-    folder:
-      enable: true
+    drive:
+      enable: True
+
+  # register:
+  #   folder:
+  #     enable: true
