@@ -196,7 +196,7 @@ def setup_mount(drive, workspace_id, configuration):
         cache_path,
         "--dir-cache-time",
         "5s",
-        "--volname=B-Buchhaltung Cloud",
+        "--volname=G-GF Cloud",
         "--file-perms=0777",
         "--dir-perms=0777",
         "--use-json-log",
