@@ -253,10 +253,10 @@ def run_rclone(arguments, drive, workspace_id, startupinfo=None):
     progress = None
     global_progress = ap.Progress("Mounting Cloud Drive", show_loading_screen=True)
 
-    print("arguments: ")
-    print(arguments)
-    print("startupinfo: ")
-    print(startupinfo)
+    # print("arguments: ")
+    # print(arguments)
+    # print("startupinfo: ")
+    # print(startupinfo)
 
     p = subprocess.Popen(
         args=arguments,
@@ -272,7 +272,6 @@ def run_rclone(arguments, drive, workspace_id, startupinfo=None):
     count_uploaded = 0
 
     for line in p.stdout:
-
         # print(line)
 
         myjson = is_json(line)

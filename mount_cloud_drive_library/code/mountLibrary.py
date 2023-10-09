@@ -253,10 +253,10 @@ def run_rclone(arguments, drive, workspace_id, startupinfo=None):
     progress = None
     global_progress = ap.Progress("Mounting Cloud Drive", show_loading_screen=True)
 
-    print("arguments: ")
-    print(arguments)
-    print("startupinfo: ")
-    print(startupinfo)
+    # print("arguments: ")
+    # print(arguments)
+    # print("startupinfo: ")
+    # print(startupinfo)
 
     p = subprocess.Popen(
         args=arguments,
@@ -272,7 +272,6 @@ def run_rclone(arguments, drive, workspace_id, startupinfo=None):
     count_uploaded = 0
 
     for line in p.stdout:
-
         # print(line)
 
         myjson = is_json(line)
@@ -417,9 +416,7 @@ def get_settings(workspace_id: str):
     import pyperclip as pc
 
     ui = ap.UI()
-    shared_settings = aps.SharedSettings(
-        workspace_id, "AnchorpointCloudMount_library"
-    )
+    shared_settings = aps.SharedSettings(workspace_id, "AnchorpointCloudMount_library")
     local_settings = aps.Settings("rclone_library")
     configuration = rclone_config.get_config()
 
