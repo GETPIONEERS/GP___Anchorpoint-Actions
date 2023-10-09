@@ -202,8 +202,8 @@ def setup_mount(drive, workspace_id, configuration):
         "--use-json-log",
         "--stats",
         "1s",
-        # "--log-level",
-        # "INFO",
+        "--log-level",
+        "INFO",
     ]
 
     arguments = base_arguments + config_arguments + rclone_arguments
