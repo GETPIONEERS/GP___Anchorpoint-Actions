@@ -190,7 +190,7 @@ def setup_mount(drive, workspace_id, configuration):
         "--transfers",
         "10",
         "--network-mode",
-        "--use-server-modtime",
+        "--no-modtime",
         "--fast-list",
         "--cache-dir",
         cache_path,
