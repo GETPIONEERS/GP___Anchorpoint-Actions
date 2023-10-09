@@ -191,6 +191,7 @@ def setup_mount(drive, workspace_id, configuration):
         "10",
         "--network-mode",
         "--use-server-modtime",
+        "--fast-list",
         "--cache-dir",
         cache_path,
         "--dir-cache-time",
