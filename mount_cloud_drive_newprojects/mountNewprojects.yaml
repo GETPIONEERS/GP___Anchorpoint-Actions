@@ -1,0 +1,28 @@
+# Anchorpoint Markup Language
+# Predefined Variables: e.g. ${path}
+# Environment Variables: e.g. ${MY_VARIABLE}
+# Full documentation: https://docs.anchorpoint.app/Actions/Reference
+
+version: 1.0
+action:
+  name: Mount NeueProjekte Cloud Drive
+
+  version: 1
+  id: "gp::actions::mount_newprojects"
+  category: GETPIONEERS
+  type: python
+  author: Anchorpoint Software GmbH & René Frassek (GETPIONEERS GmbH)
+  description: "Mounts a cloud bucket as a network drive"
+  icon:
+    path: icons/driveCloud.svg
+
+  script: "code/mountNewprojects.py"
+  settings: code/mount_action_settings.py
+
+  register:
+    new_drive:
+      enable: true
+
+  # register:
+  #   folder:
+  #     enable: true
