@@ -51,6 +51,7 @@ doSetIcon = None
 directories = [
     "Beratung/Konzept",
     "Kundendaten",
+    "Finals",
     "Produktion/Applikationen/360_2D_Events/3DVista",
     "Produktion/Applikationen/360_2D_Events/krpano",
     "Produktion/Applikationen/360_2D_Events/PTGui",
@@ -81,11 +82,6 @@ directories = [
 iconDirectories = [
     # Folders with Icons
     {   
-        "path": "Kundendaten", 
-        "icon": "emoticons/skull", 
-        "color": c_red_bright
-    },
-    {   
         "path": "Beratung", 
         "icon": "music-audio/gramophone", 
         "color": c_blue_light
@@ -94,6 +90,16 @@ iconDirectories = [
         "path": "Beratung/Konzept", 
         "icon": "design/guides", 
         "color": c_blue_light
+    },
+    {   
+        "path": "Kundendaten", 
+        "icon": "emoticons/skull", 
+        "color": c_red_bright
+    },
+    {   
+        "path": "Finals", 
+        "icon": "nature/star", 
+        "color": c_green
     },
     {   
         "path": "Produktion", 
