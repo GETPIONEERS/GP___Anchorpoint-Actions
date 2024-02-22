@@ -202,6 +202,8 @@ def setup_mount(drive, workspace_id, configuration):
         "--use-json-log",
         "--stats",
         "1s",
+        "--retries",
+        "10",
         # "--log-level",
         # "INFO",
     ]
