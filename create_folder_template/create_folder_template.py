@@ -72,6 +72,10 @@ directories = [
     "Produktion/Postproduktion/Videoedit",
     "Produktion/WebGL",
     "Produktion/WebGL/_FOLDER_PRESET",
+    "Produktion/WebGL/_FOLDER_PRESET/1_Edit",
+    "Produktion/WebGL/_FOLDER_PRESET/2_Substance",
+    "Produktion/WebGL/_FOLDER_PRESET/2_Substance/out",
+    "Produktion/WebGL/_FOLDER_PRESET/3_Out",
     "Vorproduktion/Drehbuch",
     "Vorproduktion/Inspiration",
 ]
@@ -125,7 +129,7 @@ iconDirectories = [
     },
     {
         "path": "Produktion/WebGL",
-        "icon": "design/cube",
+        "icon": "design/cube-1",
         "color": c_green_light,
     },
     {
@@ -252,6 +256,26 @@ iconDirectories = [
     },
     {
         "path": "Produktion/WebGL/_FOLDER_PRESET",
+        "icon": "",
+        "color": c_green_light,
+    },
+    {
+        "path": "Produktion/WebGL/_FOLDER_PRESET/1_Edit",
+        "icon": "",
+        "color": c_green_light,
+    },
+    {
+        "path": "Produktion/WebGL/_FOLDER_PRESET/2_Substance",
+        "icon": "",
+        "color": c_green_light,
+    },
+    {
+        "path": "Produktion/WebGL/_FOLDER_PRESET/2_Substance/out",
+        "icon": "",
+        "color": c_green_light,
+    },
+    {
+        "path": "Produktion/WebGL/_FOLDER_PRESET/3_Out",
         "icon": "",
         "color": c_green_light,
     },
