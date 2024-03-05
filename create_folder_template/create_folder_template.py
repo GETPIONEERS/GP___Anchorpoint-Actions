@@ -251,7 +251,7 @@ iconDirectories = [
         "color": c_green_light
     },
     {
-        "path": "Produktion/WebGL/_FOLDER_PRESETS",
+        "path": "Produktion/WebGL/_FOLDER_PRESET",
         "icon": "",
         "color": c_green_light,
     },
@@ -328,7 +328,7 @@ dialog.add_text(
 )
 dialog.add_text("Path: " + apc.project_path)
 dialog.add_empty()
-dialog.add_checkbox(True, var="doGitkeep").add_text("Create .gitkeep files")
+dialog.add_checkbox(False, var="doGitkeep").add_text("Create .gitkeep files")
 dialog.add_info(
     "By default, Git ignores all folders without a file in it. This will create a .gitkeep file in every last folder <br>in a chain to make sure every user gets every folder. This should be enabled in most cases."
 )
