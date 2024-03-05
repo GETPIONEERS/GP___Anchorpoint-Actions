@@ -52,14 +52,10 @@ directories = [
     "Beratung/Konzept",
     "Kundendaten",
     "Finals",
-    "Produktion/Applikationen/360_2D_Events/3DVista",
-    "Produktion/Applikationen/360_2D_Events/krpano",
-    "Produktion/Applikationen/360_2D_Events/PTGui",
-    "Produktion/Applikationen/Output/WebGL",
-    "Produktion/Applikationen/Realtime/ThreeJS",
-    "Produktion/Applikationen/Realtime/UEngine",
-    "Produktion/Applikationen/Realtime/Unity",
-    "Produktion/Applikationen/Website_HTML/Bootstrap/HTML",
+    "Produktion/Apps/360_2D",
+    "Produktion/Apps/Output",
+    "Produktion/Apps/Realtime",
+    "Produktion/Apps/HTML",
     "Produktion/CGI/previews",
     "Produktion/CGI/renderoutput",
     "Produktion/CGI/renderpresets",
@@ -74,6 +70,8 @@ directories = [
     "Produktion/Postproduktion/Output/Prefinal",
     "Produktion/Postproduktion/Output/Preview",
     "Produktion/Postproduktion/Videoedit",
+    "Produktion/WebGL",
+    "Produktion/WebGL/_FOLDER_PRESET",
     "Vorproduktion/Drehbuch",
     "Vorproduktion/Inspiration",
 ]
@@ -107,7 +105,7 @@ iconDirectories = [
         "color": c_green_light
     },
     {
-        "path": "Produktion/Applikationen",
+        "path": "Produktion/Apps",
         "icon": "design/layers",
         "color": c_green_light,
     },
@@ -123,6 +121,11 @@ iconDirectories = [
     {
         "path": "Produktion/Postproduktion",
         "icon": "design/paper-cutter",
+        "color": c_green_light,
+    },
+    {
+        "path": "Produktion/WebGL",
+        "icon": "design/cube",
         "color": c_green_light,
     },
     {
@@ -143,66 +146,22 @@ iconDirectories = [
     
     # Folders with just colors
     {
-        "path": "Produktion/Applikationen/360_2D_Events",
+        "path": "Produktion/Apps/360_2D",
         "icon": "",
         "color": c_green_light,
     },
     {
-        "path": "Produktion/Applikationen/360_2D_Events/3DVista",
-        "icon": "",
-        "color": c_green_light,
-    },
-    {
-        "path": "Produktion/Applikationen/360_2D_Events/krpano",
-        "icon": "",
-        "color": c_green_light,
-    },
-    {
-        "path": "Produktion/Applikationen/360_2D_Events/PTGui",
-        "icon": "",
-        "color": c_green_light,
-    },
-    {
-        "path": "Produktion/Applikationen/Output/", 
-        "icon": "", 
-        "color": c_green_light},
-    {
-        "path": "Produktion/Applikationen/Output/WebGL",
-        "icon": "",
-        "color": c_green_light,
-    },
-    {
-        "path": "Produktion/Applikationen/Realtime/", 
+        "path": "Produktion/Apps/Output", 
         "icon": "", 
         "color": c_green_light
     },
     {
-        "path": "Produktion/Applikationen/Realtime/ThreeJS",
-        "icon": "",
-        "color": c_green_light,
+        "path": "Produktion/Apps/Realtime", 
+        "icon": "", 
+        "color": c_green_light
     },
     {
-        "path": "Produktion/Applikationen/Realtime/UEngine",
-        "icon": "",
-        "color": c_green_light,
-    },
-    {
-        "path": "Produktion/Applikationen/Realtime/Unity",
-        "icon": "",
-        "color": c_green_light,
-    },
-    {
-        "path": "Produktion/Applikationen/Website_HTML",
-        "icon": "",
-        "color": c_green_light,
-    },
-    {
-        "path": "Produktion/Applikationen/Website_HTML/Bootstrap",
-        "icon": "",
-        "color": c_green_light,
-    },
-    {
-        "path": "Produktion/Applikationen/Website_HTML/Bootstrap/HTML",
+        "path": "Produktion/Apps/HTML",
         "icon": "",
         "color": c_green_light,
     },
@@ -290,6 +249,11 @@ iconDirectories = [
         "path": "Produktion/Postproduktion/Videoedit", 
         "icon": "", 
         "color": c_green_light
+    },
+    {
+        "path": "Produktion/WebGL/_FOLDER_PRESETS",
+        "icon": "",
+        "color": c_green_light,
     },
 ]
 # fmt: one
